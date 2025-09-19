@@ -19,11 +19,22 @@
       <a-sky color="#ECECEC"></a-sky>
     </a-scene>
 
-    <script>
-      // Start sound after first user click
-      document.body.addEventListener('click', () => {
-        document.querySelector('#bg-sound').components.sound.playSound();
-      }, { once: true });
+      <script>
+      // Many browsers require a user gesture to start audio. We'll start on first user click.
+      const soundEntity = document.querySelector('#soundEntity');
+
+      function tryPlay() {
+        // start playing via the sound component API
+        if (!soundEntity.components.sound.isPlaying) {
+          soundEntity.components.sound.playSound();
+        }
+        // remove the listener after first gesture
+        window.removeEventListener('click', tryPlay);
+        window.removeEventListener('touchstart', tryPlay);
+      }
+
+      window.addEventListener('click', tryPlay);
+      window.addEventListener('touchstart', tryPlay);
     </script>
   </body>
 </html>
