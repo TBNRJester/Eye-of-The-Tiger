@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <!-- Camera -->
+      <a-entity camera look-controls wasd-controls position="0 1.6 0"></a-entity>
+
+      <!-- Background sound -->
+      <a-entity id="bg-sound"
+                sound="src: url(https://drive.google.com/file/d/1zorgjyMD8OXA_r2EU2XzOwhH_gxx2p8A/view?pli=1);
+                       autoplay: false;
+                       loop: true;
+                       volume: 5;">
+      </a-entity>
+
+      <a-box position="0 1.5 -2" color="tomato"></a-box>
+      <a-sky color="#ECECEC"></a-sky>
+    </a-scene>
+
+    <script>
+      // Start sound after first user click
+      document.body.addEventListener('click', () => {
+        document.querySelector('#bg-sound').components.sound.playSound();
+      }, { once: true });
+    </script>
+  </body>
+</html>
