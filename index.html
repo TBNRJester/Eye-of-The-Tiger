@@ -14,10 +14,11 @@
       <a-entity camera look-controls wasd-controls position="0 1.6 0"></a-entity>
 
       <!-- Background sound -->
+      <a-assets>
        <audio id="#bg-sound" crossorigin="anonymous"
                src="https://github.com/TBNRJester/Sharingan/raw/refs/heads/main/EyeOfTheTiger.mp3">
         </audio>
-
+</a-assets>
       <a-box id=speaker position="0 1.5 -2" color="tomato"></a-box>
        <a-entity id="soundEntity"
                 sound="src: #bg-sound; autoplay: false; loop: true; positional: true; volume: 10"
