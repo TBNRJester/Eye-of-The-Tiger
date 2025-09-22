@@ -38,6 +38,9 @@
 
       window.addEventListener('click', tryPlay);
       window.addEventListener('touchstart', tryPlay);
+      document.querySelector('#speaker').addEventListener('click', () => {
+  soundEntity.components.sound.playSound();
+});
     </script>
   </body>
 </html>
